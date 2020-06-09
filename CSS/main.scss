@@ -70,8 +70,10 @@ header {
     justify-content: center;
     align-items: flex-end;
     padding: 5vh;
+    padding-top: 0;
 
     .content {
+      padding-top: 0;
       h1 {
         a {
           text-decoration: none;
