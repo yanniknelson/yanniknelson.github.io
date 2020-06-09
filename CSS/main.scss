@@ -17,7 +17,6 @@ body {
 }
 
 ::-webkit-scrollbar {
-  //width: 0.25rem;
   width: 0;
 }
 
@@ -28,7 +27,6 @@ body {
   width: 0.5rem;
   height: 100%;
   background: #00000075;
-  //background: $primary-color;
 }
 
 #scrollThumb {
@@ -85,7 +83,6 @@ header {
         display: flex;
         justify-content: center;
         margin-top: 1rem;
-
         width: 100%;
 
         a {
@@ -117,9 +114,10 @@ main {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 475px;
-  font-size: 16px;
+  flex-wrap: wrap;
 
+  padding: 37.5px 0 37.5px 0;
+  font-size: 16px;
   width: 100%;
   box-shadow: 0 50px 50px -50px #000 inset, 0 -50px 50px -50px #000 inset;
   background-color: $primary-color;
@@ -127,10 +125,11 @@ main {
 
 .coding-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  //height: 475px;
   padding: 37.5px 0 37.5px 0;
   font-size: 16px;
   width: 100%;
@@ -153,7 +152,9 @@ main {
 }
 
 .card {
+  flex-basis: 20%;
   position: relative;
+  margin: 15px;
 
   .face {
     width: 300px;
@@ -249,23 +250,6 @@ main {
 
     .face.card-top .content {
       opacity: 1;
-    }
-  }
-}
-
-@media screen and (max-width: 930px) {
-  .practical-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    align-items: center;
-    height: 850px;
-  }
-  @media screen and (max-width: 630px) {
-    .practical-container {
-      display: flex;
-      flex-direction: column;
-      height: 1250px;
     }
   }
 }
