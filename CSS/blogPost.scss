@@ -42,4 +42,20 @@ main {
       max-height: 40vh;
     }
   }
+  @media screen and (max-width: 920px) {
+    .content {
+      flex-direction: column-reverse;
+      align-items: center;
+      max-width: min-content;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+    }
+
+    #para1 {
+      //max-height: none;
+      //max-width: 70%;
+    }
+  }
 }
