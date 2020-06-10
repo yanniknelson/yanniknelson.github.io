@@ -38,11 +38,11 @@ main {
     }
 
     #para1 {
-      //min-width: 40vw;
       max-height: 40vh;
     }
   }
-  @media screen and (max-width: 920px) {
+  //@media screen and (max-width: 920px) {
+  @media screen and (max-width: 600px) {
     .content {
       flex-direction: column-reverse;
       align-items: center;
@@ -51,11 +51,6 @@ main {
     }
     h2 {
       text-align: center;
-    }
-
-    #para1 {
-      //max-height: none;
-      //max-width: 70%;
     }
   }
 }
