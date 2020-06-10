@@ -174,14 +174,6 @@ main {
     z-index: 1;
     transform: translateY(100px);
 
-    .cardshadow {
-      width: 300px;
-      height: 200px;
-      transition: 0.5s;
-      position: absolute;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    }
-
     .content {
       display: flex;
       justify-content: center;
@@ -215,6 +207,15 @@ main {
     transform: translateY(-100px);
     color: #000;
 
+    .cardshadow {
+      width: 300px;
+      height: 200px;
+      transition: 0.5s;
+      position: absolute;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      z-index: -1;
+    }
+
     p {
       margin: 0;
       padding: 0;
@@ -240,6 +241,10 @@ main {
     .face.card-top {
       background: $tertiary-color;
       transform: translateY(0px);
+
+      .content {
+        opacity: 1;
+      }
     }
 
     #BBCPU {
@@ -254,18 +259,14 @@ main {
       background: #46a6ff;
     }
 
-    .face.card-top .cardshadow {
-      height: 400px;
-      transform: translateY(100px);
-    }
-
     .face.card-descrip {
       transform: translateY(0px);
       box-shadow: none;
-    }
 
-    .face.card-top .content {
-      opacity: 1;
+      .cardshadow {
+        height: 400px;
+        transform: translateY(-100px);
+      }
     }
   }
 }
