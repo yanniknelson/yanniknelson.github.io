@@ -35,10 +35,6 @@ main {
         }
       }
     }
-
-    #para1 {
-      max-height: 40vh;
-    }
   }
   @media screen and (max-width: 920px), screen and (max-width: 600px) {
     //@media screen and (max-width: 600px) {
@@ -47,11 +43,6 @@ main {
       max-width: min-content;
 
       margin: auto;
-      margin-bottom: 5vh;
-    }
-
-    p #para1 {
-      max-height: 200vh;
       margin-bottom: 5vh;
     }
 
