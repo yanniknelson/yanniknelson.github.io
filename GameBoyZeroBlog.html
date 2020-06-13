@@ -13,6 +13,13 @@
       #para1 {
         max-height: 40vh;
       }
+
+      @media screen and (max-width: 1100px), screen and (max-width: 600px) {
+        #para1 {
+          max-height: none;
+          width: 402px;
+        }
+      }
     </style>
     <div id="scrollbar"></div>
     <div id="scrollThumb"></div>
@@ -39,54 +46,37 @@
         Game Boy Zero
       </h2>
       <div class="content">
-        <div class="blogText" id="para1">
-          <p>
-            During the summer of 2018 I decided I wanted a portable retro-games
-            console for my last family holiday (the flight was long). I went
-            searching for ideas for projects fitting this description online and
-            stumbled across the Game Boy Zero project from
-            <a href="https://www.sudomod.com/" target="_blank">sudomod</a>
-            and decided to have a go at making my own. <br />
-            <br />
-            The Game Boy Zero I was building conisisted of a Raspberry Pi Zero,
-            screen, Teensy (for controls) and a custom board for the buttons
-            (not made by me). <br />
-            <br />
-            It was at this point that I added the battery and charging circuit
-            (as you can see in the photo) doing so allowed the console to run
-            without being plugged in. Unfortunately the charging functionality
-            of the circuit wasn't working and while attempting to debug this
-            issue the charging circuit blew the raspberry pi (at the very
-            least). <br />
-            <br />
-            I hope to pick this project back up when I have both the time and
-            the equipment, any progress will be documented here.
-          </p>
-        </div>
-        <img src="/Images/GameBoyZero.jpg" alt="" id="para1" />
+        <section class="paragraph" id="para1">
+          <img src="/Images/GameBoyZero.jpg" alt="" id="para1" class="second" />
+          <div class="blogText">
+            <p>
+              During the summer of 2018 I decided I wanted a portable
+              retro-games console for my last family holiday (the flight was
+              long). I went searching for ideas for projects fitting this
+              description online and stumbled across the Game Boy Zero project
+              from
+              <a href="https://www.sudomod.com/" target="_blank">sudomod</a>
+              and decided to have a go at making my own. <br />
+              <br />
+              The Game Boy Zero I was building conisisted of a Raspberry Pi
+              Zero, screen, Teensy (for controls) and a custom board for the
+              buttons (not made by me). <br />
+              <br />
+              It was at this point that I added the battery and charging circuit
+              (as you can see in the photo) doing so allowed the console to run
+              without being plugged in. Unfortunately the charging functionality
+              of the circuit wasn't working and while attempting to debug this
+              issue the charging circuit blew the raspberry pi (at the very
+              least). <br />
+              <br />
+              I hope to pick this project back up when I have both the time and
+              the equipment, any progress will be documented here.
+            </p>
+          </div>
+          </div>
+        </section>
       </div>
     </main>
-    <script type="text/javascript">
-      let progress = document.getElementById("scrollThumb");
-      let totalHeight = document.body.scrollHeight - window.innerHeight;
-      let progressHeight = (window.pageYOffset / totalHeight) * 100;
-      if (totalHeight < 0) {
-        progressHeight = 100;
-      }
-      progress.style.height = progressHeight + "%";
-      window.onresize = function () {
-        let totalHeight = document.body.scrollHeight - window.innerHeight;
-        let progressHeight = (window.pageYOffset / totalHeight) * 100;
-        if (totalHeight < 0) {
-          progressHeight = 100;
-        }
-        progress.style.height = progressHeight + "%";
-      };
-      window.onscroll = function () {
-        let totalHeight = document.body.scrollHeight - window.innerHeight;
-        let progressHeight = (window.pageYOffset / totalHeight) * 100;
-        progress.style.height = progressHeight + "%";
-      };
-    </script>
+    <script src="/JavaScript/Scroll.js"></script>
   </body>
 </html>

@@ -80,7 +80,7 @@
           <div class="face card-descrip">
             <div class="content">
               <p>
-                For halloween of 2016 I decided to go as Wrench from WatchDogs 2
+                For halloween of 2017 I decided to go as Wrench from WatchDogs 2
                 (a video game I liked). This character has a mask with LED eyes,
                 so i decided to make this (and the rest of the costume) myself.
               </p>
@@ -324,27 +324,6 @@
         </div>
       </div>
     </main>
-    <script type="text/javascript">
-      let progress = document.getElementById("scrollThumb");
-      let totalHeight = document.body.scrollHeight - window.innerHeight;
-      let progressHeight = (window.pageYOffset / totalHeight) * 100;
-      if (totalHeight < 0) {
-        progressHeight = 100;
-      }
-      progress.style.height = progressHeight + "%";
-      window.onresize = function () {
-        let totalHeight = document.body.scrollHeight - window.innerHeight;
-        let progressHeight = (window.pageYOffset / totalHeight) * 100;
-        if (totalHeight < 0) {
-          progressHeight = 100;
-        }
-        progress.style.height = progressHeight + "%";
-      };
-      window.onscroll = function () {
-        let totalHeight = document.body.scrollHeight - window.innerHeight;
-        let progressHeight = (window.pageYOffset / totalHeight) * 100;
-        progress.style.height = progressHeight + "%";
-      };
-    </script>
+    <script src="/JavaScript/Scroll.js"></script>
   </body>
 </html>
