@@ -10,13 +10,26 @@
   </head>
   <body>
     <style>
-      #para1 {
+      #para1,#para2 {
         max-height: 40vh;
-        width: 70%;
+        max-width: 80%;
       }
+
+      .right {
+        float: right;
+      }
+
+      .left {
+        float: left;
+      }
+      
+
       @media screen and (max-width: 1100px), screen and (max-width: 600px) {
-        #para1 {
-          width: none;
+        #para1,#para2 {
+          max-height: none;
+          max-width: none;
+          width: 402px;
+          float: none;
         }
       }
     </style>
@@ -42,11 +55,12 @@
     </header>
     <main>
       <h2>
-        Game Boy Zero
+        LED Mask
       </h2>
       <div class="content">
-        <div class="para">
-          <div class="blogText" id="para1">
+        <section class="paragraph right" id="para1">
+          <img src="/Images/maskexample.jpg" alt="" id="para1" class="second" />
+          <div class="blogText">
             <p>
               For the halloween of 2017 I decided I wanted to make my own
               costume myself and wanted an element of this costume to be
@@ -62,11 +76,38 @@
               I had to have an led display in the eyes thin enough to allow me
               to still wear the mask, a board to control those leds and some way
               of triggering the change of the design displayed.<br />
-              <br />
             </p>
           </div>
-          <img src="/Images/maskexample.jpg" alt="" id="para1" />
-        </div>
+        </section>
+        <section class="paragraph left" id="para2">
+          <img src="/Images/GameBoyZero.jpg" alt="" id="para2" />
+          <div class="blogText">
+            <p>
+              During the summer of 2018 I decided I wanted a portable
+              retro-games console for my last family holiday (the flight was
+              long). I went searching for ideas for projects fitting this
+              description online and stumbled across the Game Boy Zero project
+              from
+              <a href="https://www.sudomod.com/" target="_blank">sudomod</a>
+              and decided to have a go at making my own. <br />
+              <br />
+              The Game Boy Zero I was building conisisted of a Raspberry Pi
+              Zero, screen, Teensy (for controls) and a custom board for the
+              buttons (not made by me). <br />
+              <br />
+              It was at this point that I added the battery and charging circuit
+              (as you can see in the photo) doing so allowed the console to run
+              without being plugged in. Unfortunately the charging functionality
+              of the circuit wasn't working and while attempting to debug this
+              issue the charging circuit blew the raspberry pi (at the very
+              least). <br />
+              <br />
+              I hope to pick this project back up when I have both the time and
+              the equipment, any progress will be documented here.
+            </p>
+          </div>
+          </div>
+        </section>
       </div>
     </main>
     <script src="/JavaScript/Scroll.js"></script>
