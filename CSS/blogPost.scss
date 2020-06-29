@@ -38,6 +38,31 @@ main {
     background-color: $primary-color;
   }
 
+  .example {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 500px;
+    color: black;
+    margin-bottom: 5vh;
+
+    img {
+      max-width: 500px;
+      max-height: 477px;
+    }
+  }
+
+  .extext {
+    h3 {
+      color: $primary-color;
+      padding: 0 0 0 3%;
+    }
+    background: $light-color;
+    p {
+      padding: 0 3% 2% 3%;
+    }
+  }
+
   .content {
     margin-left: 3vw;
     margin-right: 3vw;
@@ -106,8 +131,20 @@ main {
       width: 100%;
     }
     .examples {
-      flex-direction: column;
       margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .example {
+      margin: 15px;
+      width: 402px;
+      img {
+        width: 402px;
+      }
     }
 
     .paragraph {
