@@ -47,8 +47,8 @@ main {
     margin-bottom: 5vh;
 
     img {
-      max-width: 500px;
-      max-height: 477px;
+      width: 500px;
+      height: none;
     }
   }
 
@@ -101,9 +101,21 @@ main {
           padding: 5% 3% 2% 3%;
           margin: 0;
         }
+        ul {
+          color: $primary-color;
+          margin-left: 2%;
+        }
 
         .with_header {
-          padding: 0 3% 2% 3%;
+          padding-top: 0;
+        }
+
+        .with_list_bellow {
+          padding-bottom: 0;
+        }
+
+        .with_list_above {
+          padding-top: 0;
         }
 
         a {
@@ -163,8 +175,8 @@ main {
         order: 1;
         max-height: none;
         max-width: none;
-        height: auto;
         width: 402px;
+        height: none;
         float: none;
       }
 
