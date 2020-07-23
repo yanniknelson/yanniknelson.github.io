@@ -153,9 +153,9 @@ main {
 
     .example {
       margin: 15px;
-      width: 402px;
+      width: 360px;
       img {
-        width: 402px;
+        width: 360px;
       }
     }
 
@@ -163,7 +163,7 @@ main {
       height: fit-content;
       max-height: none;
       max-width: none;
-      width: 402px;
+      width: 360px;
       float: none;
 
       flex-direction: column;
@@ -175,7 +175,7 @@ main {
         order: 1;
         max-height: none;
         max-width: none;
-        width: 402px;
+        width: 360px;
         height: none;
         float: none;
       }
