@@ -1,0 +1,223 @@
+$primary-color: #222831;
+$secondary-color: #393e46;
+$tertiary-color: #f96d00;
+$light-color: #f2f2f2;
+$shadow-dark: #181d23;
+$shadow-light: #2c333f;
+
+$anim-time: 0.3s;
+
+.card {
+  flex-basis: 20%;
+  position: relative;
+  margin: 15px;
+
+  .face {
+    width: 300px;
+    height: 200px;
+    transition: 0.5s;
+    border-radius: 25px;
+  }
+
+  .cardshadow {
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    border-radius: 25px;
+    animation-name: fadein;
+    animation-duration: $anim-time;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    z-index: -1;
+  }
+
+  .face.card-top {
+    position: relative;
+    color: #fff;
+    background: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(100px);
+    overflow: hidden;
+
+    animation-name: imgfadein;
+    animation-duration: $anim-time;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.2;
+      transition: 0.2s;
+      text-align: left;
+
+      img {
+        max-width: 100px;
+        max-height: 113.84px;
+      }
+
+      h3 {
+        padding-left: 10px;
+        max-width: 150px;
+        text-align: center;
+      }
+    }
+  }
+
+  .face.card-descrip {
+    position: relative;
+    background: $primary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(-100px);
+    color: $light-color;
+
+    .content {
+      animation-name: descripfadeout;
+      animation-duration: $anim-time * 0.6;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+    }
+
+    p,
+    a {
+      opacity: 0.6;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      margin: 10px 0 0;
+      display: inline-block;
+      text-decoration: none;
+      color: $light-color;
+      font-weight: 900;
+      padding: 5px;
+      border: 1px solid $light-color;
+    }
+
+    a:hover {
+      background: #333;
+    }
+  }
+
+  @keyframes fadeout {
+    0% {
+      box-shadow: 15px 15px 30px $shadow-dark, -15px -15px 30px $shadow-light;
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+    }
+    100% {
+      box-shadow: inset 15px 15px 30px $shadow-dark,
+        inset -15px -15px 30px $shadow-light;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadein {
+    0% {
+      box-shadow: inset 15px 15px 30px $shadow-dark,
+        inset -15px -15px 30px $shadow-light;
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+    }
+    100% {
+      box-shadow: 15px 15px 30px $shadow-dark, -15px -15px 30px $shadow-light;
+      opacity: 1;
+    }
+  }
+
+  @keyframes imgfadeout {
+    0% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+      visibility: hidden;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  @keyframes imgfadein {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+    }
+    60% {
+      opacity: 0;
+      visibility: visible;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes descripfadein {
+    0% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes descripfadeout {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+    .face.card-top {
+      animation-name: imgfadeout;
+      animation-duration: $anim-time;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+      // opacity: 0;
+      // visibility: hidden;
+      // .content {
+      //   opacity: 0;
+      // }
+    }
+
+    .face.card-descrip {
+      .content {
+        animation-name: descripfadein;
+        animation-duration: $anim-time;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+      }
+
+      .cardshadow {
+        animation-name: fadeout;
+        animation-duration: $anim-time;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+      }
+    }
+  }
+}

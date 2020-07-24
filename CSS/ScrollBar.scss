@@ -1,0 +1,39 @@
+$primary-color: #222831;
+$secondary-color: #393e46;
+$tertiary-color: #f96d00;
+$light-color: #f2f2f2;
+$shadow-dark: #181d23;
+$shadow-light: #2c333f;
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+#scrollbar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 0.5rem;
+  height: 100%;
+  background: #00000075;
+}
+
+#scrollThumb {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 0.5rem;
+  height: 100%;
+  background: $tertiary-color;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $tertiary-color;
+    filter: blur(10px);
+  }
+}
