@@ -5,6 +5,8 @@ $light-color: #f2f2f2;
 $shadow-dark: #181d23;
 $shadow-light: #2c333f;
 
+$anim-time: 0.3s;
+
 .card {
   flex-basis: 20%;
   position: relative;
@@ -23,7 +25,7 @@ $shadow-light: #2c333f;
     position: absolute;
     border-radius: 25px;
     animation-name: fadein;
-    animation-duration: 0.3s;
+    animation-duration: $anim-time;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     z-index: -1;
@@ -33,13 +35,17 @@ $shadow-light: #2c333f;
     position: relative;
     color: #fff;
     background: $primary-color;
-    //border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
     transform: translateY(100px);
     overflow: hidden;
+
+    animation-name: imgfadein;
+    animation-duration: $anim-time;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
 
     .content {
       display: flex;
@@ -74,10 +80,21 @@ $shadow-light: #2c333f;
     transform: translateY(-100px);
     color: $light-color;
 
+    .content {
+      animation-name: descripfadeout;
+      animation-duration: $anim-time * 0.6;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+    }
+
+    p,
+    a {
+      opacity: 0.6;
+    }
+
     p {
       margin: 0;
       padding: 0;
-      opacity: 0.6;
     }
 
     a {
@@ -88,7 +105,6 @@ $shadow-light: #2c333f;
       font-weight: 900;
       padding: 5px;
       border: 1px solid $light-color;
-      opacity: 0.6;
     }
 
     a:hover {
@@ -126,19 +142,79 @@ $shadow-light: #2c333f;
     }
   }
 
-  &:hover {
-    .face.card-top {
+  @keyframes imgfadeout {
+    0% {
+      opacity: 1;
+    }
+    60% {
       opacity: 0;
       visibility: hidden;
-      .content {
-        opacity: 0;
-      }
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  @keyframes imgfadein {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+    }
+    60% {
+      opacity: 0;
+      visibility: visible;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes descripfadein {
+    0% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes descripfadeout {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+    .face.card-top {
+      animation-name: imgfadeout;
+      animation-duration: $anim-time;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+      // opacity: 0;
+      // visibility: hidden;
+      // .content {
+      //   opacity: 0;
+      // }
     }
 
     .face.card-descrip {
+      .content {
+        animation-name: descripfadein;
+        animation-duration: $anim-time;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+      }
+
       .cardshadow {
         animation-name: fadeout;
-        animation-duration: 0.3s;
+        animation-duration: $anim-time;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in-out;
       }
