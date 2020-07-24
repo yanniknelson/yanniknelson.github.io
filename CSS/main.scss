@@ -12,7 +12,7 @@ $light-color: #f2f2f2;
 body {
   margin: 0;
   padding: 0;
-  background-color: $secondary-color;
+  background-color: $primary-color;
   color: $light-color;
   font-family: Roboto, sans-serif;
 }
@@ -118,7 +118,8 @@ main {
   padding: 37.5px 0 37.5px 0;
   font-size: 16px;
   width: 100%;
-  box-shadow: 0 50px 50px -50px #000 inset, 0 -50px 50px -50px #000 inset;
+  box-shadow: inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+    inset 0 15px 15px rgba(0, 0, 0, 0.05);
   background-color: $primary-color;
 }
 
@@ -132,7 +133,8 @@ main {
   padding: 37.5px 0 37.5px 0;
   font-size: 16px;
   width: 100%;
-  box-shadow: 0 50px 50px -50px #000 inset, 0 -50px 50px -50px #000 inset;
+  box-shadow: inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+    inset 0 15px 15px rgba(0, 0, 0, 0.05);
   background-color: $primary-color;
 
   .coding-row {
@@ -159,24 +161,27 @@ main {
     width: 300px;
     height: 200px;
     transition: 0.5s;
+    border-radius: 25px;
   }
 
   .face.card-top {
     position: relative;
     color: #fff;
-    background: #333;
+    background: $primary-color;
+    //border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
     transform: translateY(100px);
+    overflow: hidden;
 
     .content {
       display: flex;
       justify-content: center;
       align-items: center;
       opacity: 0.2;
-      transition: 0.5s;
+      transition: 0.2s;
       text-align: left;
 
       img {
@@ -194,7 +199,7 @@ main {
 
   .face.card-descrip {
     position: relative;
-    background: $light-color;
+    background: $primary-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -202,67 +207,73 @@ main {
     padding: 20px;
     box-sizing: border-box;
     transform: translateY(-100px);
-    color: #000;
+    color: $light-color;
 
     .cardshadow {
       width: 300px;
       height: 200px;
       transition: 0.5s;
       position: absolute;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      border-radius: 25px;
+      box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+        0 15px 15px rgba(0, 0, 0, 0.05);
       z-index: -1;
     }
 
     p {
       margin: 0;
       padding: 0;
+      opacity: 0.5;
     }
 
     a {
       margin: 10px 0 0;
       display: inline-block;
       text-decoration: none;
-      color: #000;
+      color: $light-color;
       font-weight: 900;
       padding: 5px;
-      border: 1px solid #333;
+      border: 1px solid $light-color;
+      opacity: 0.5;
     }
 
     a:hover {
       background: #333;
-      color: #fff;
     }
   }
 
   &:hover {
     .face.card-top {
-      background: $tertiary-color;
-      transform: translateY(0px);
+      // background: $tertiary-color;
+      //transform: translateY(0px);
+      opacity: 0;
 
       .content {
-        opacity: 1;
+        opacity: 0;
       }
     }
 
-    #BBCPU {
-      background: #f91313;
-    }
+    // #BBCPU {
+    //   background: #f91313;
+    // }
 
-    #LEDMSK {
-      background: #00db29;
-    }
+    // #LEDMSK {
+    //   background: #00db29;
+    // }
 
-    #GMBZ {
-      background: #46a6ff;
-    }
+    // #GMBZ {
+    //   background: #46a6ff;
+    // }
 
     .face.card-descrip {
-      transform: translateY(0px);
-      box-shadow: none;
+      // transform: translateY(0px);
+      // box-shadow: none;
 
       .cardshadow {
-        height: 400px;
-        transform: translateY(-100px);
+        //height: 400px;
+        //transform: translateY(-100px);
+        box-shadow: inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+          inset 0 15px 15px rgba(0, 0, 0, 0.05);
       }
     }
   }
