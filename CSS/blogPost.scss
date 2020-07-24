@@ -98,12 +98,15 @@ main {
 
         p {
           color: $primary-color;
-          padding: 5% 3% 2% 3%;
+          padding: 3% 3% 2% 3%;
           margin: 0;
         }
-        ul {
+
+        ul,
+        ol {
           color: $primary-color;
           margin-left: 2%;
+          margin-right: 2%;
         }
 
         .with_header {

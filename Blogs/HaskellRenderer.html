@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/main.min.css" />
+    <link rel="stylesheet" href="/CSS/blogPost.min.css" />
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+    <title>Yannik Nelson - Haskell Renderer</title>
+  </head>
+  <body>
+    <div id="scrollbar"></div>
+    <div id="scrollThumb"></div>
+    <header>
+      <div class="header-container">
+        <div class="content">
+          <h1><a href="/index.html">Yannik Nelson</a></h1>
+          <div class="links">
+            <a href="https://www.linkedin.com/in/yannik-nelson" target="_blank"
+              >LinkedIn</a
+            >
+            <a href="https://github.com/yanniknelson" target="_blank">Github</a>
+            <a href="mailto:yannikdanielnelson@gmail.com" target="_blank"
+              >Email</a
+            >
+            <a href="/Yannik-Nelson_CV.pdf" target="_blank">CV</a>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </header>
+    <main>
+      <h2>
+        Haskell Renderer
+      </h2>
+      <div class="content">
+        <section class="paragraph left">
+          <img src="/Images/3DGoL.gif" alt="" class="second" />
+          <div class="blogText">
+            <h3>Overview</h3>
+            <p class="with_header">
+              In my first semester of University we had a course on functional
+              programming where we learnt haskell. We were all challenged to
+              write a haskell program that produced an image, with the added
+              challenge of making it interactive. For this challenge I partnered
+              with two friends to make a 3D version of Conway's Game of Life, my
+              friends worked on the Game of Life code while I worked on the
+              rendering code. I decided that I didn't want to use the in built
+              3D renderer in OpenGL (GLUT) as I wanted to learn more about
+              rendering algorithms. <br />
+              <br />
+              Note: The gif to the right (or above) is sped up to make it
+              shorter, the real program runs slower.
+            </p>
+          </div>
+        </section>
+        <section class="paragraph right">
+          <img src="/Images/2DGoL.gif" alt="" class="first" />
+          <div class="blogText">
+            <h3>First steps</h3>
+            <p class="with_header">
+              The first stage of development was simply to try and get to grips
+              with The graphics library. To do this I decided that I would write
+              code that would take in a 2D Game of Life world and display that.
+              I used this to learn how to shapes to the screen and learn about
+              how openGL's callbacks and structure worked (display callback,
+              reshape callback, keyboard and mouse callback, idle callback and
+              the mainloop) along with OpenGL's buffers. I also started to learn
+              about IORef from haskell, which honestly I still don't fully
+              understand. <br />
+              <br />
+              All of this code can be found in the Rendering2D.hs file.
+            </p>
+          </div>
+        </section>
+        <section class="paragraph left">
+          <img src="/Images/dotRenderer.gif" alt="" class="second" />
+          <div class="blogText">
+            <h3>To The Renderer</h3>
+            <p class="with_header">
+              The first stage of making the rendering engine was to take in a
+              series of points that represented the centers of each alive cell,
+              turn them into cubes and draw the corners onto the screen. <br />
+              <br />
+              This was the hardest part of the projects as I had never learnt
+              about rendering before so I had to wrap my head around the maths.
+              I also decided to make the cubes rotate to make it easier to for
+              the eye to 'pick out' the cubes, this functionality was then used
+              for keyboard controls to "move around the environment" (the
+              quotation marks will make sense later).
+            </p>
+          </div>
+        </section>
+        <section class="paragraph right">
+          <img src="/Images/faceRenderer.gif" alt="" class="first" />
+          <div class="blogText">
+            <p>
+              The next stage was to draw the faces of the cubes, as I knew I
+              would only be drawing cubes in this renderer I decided to simplify
+              this job by drawing each face as a quad rather than two triangles
+              as would be done with proper renderers. I was at this time aswell
+              that I implemented movement control from the keyboard. The colours
+              of the eacg cube was determined using its location. <br />
+              <br />
+              At this stage I was able to start taking in acutal Game of Life
+              generations and displaying them. I implemented a timer into the
+              idle callback to control progressing through the generations of
+              the Game of Life.
+            </p>
+          </div>
+        </section>
+        <section class="paragraph left">
+          <div class="blogText">
+            <h3>Issues</h3>
+            <p class="with_header with_list_bellow">
+              Once I did this I ran into a three main problems:
+            </p>
+            <ol>
+              <li>
+                Cubes were being drawn over other cubes that were meant to be
+                infront of them.
+              </li>
+              <li>
+                If any Cubes were behind the camera, stange artifacting was
+                occuring.
+              </li>
+              <li>The renderer ran very <em>VERY</em> slowly.</li>
+            </ol>
+            <ol>
+              <li>
+                My solution to the first problem was to order all of the
+                (center) points by distance to the camera (which was locked to
+                point (0,0,0)).
+              </li>
+              <li>
+                My solution to the second problem was to lock the camera looking
+                in the positive direction, move and rotate the environment
+                instead of the camera and to discard any and all (center) points
+                that would be behind the camera (this would aid in problem 3
+                too).
+              </li>
+              <li>
+                My further solution to the third problem was to throw the 3
+                faces of all cubes that would never be seen by the camera.
+              </li>
+            </ol>
+            <p class="with_list_above">
+              There was an alternative solution to the speed issue which
+              invovled moving and rotating the camera instead of the
+              environment. I implemented this camera's projection matrix and
+              found the render's speed increased significantly. The issue with
+              this method was the problem of removing cubes that were behind the
+              camera became a lot more complex, and I would nobe able to solve
+              it within the alloted time so sadly I had to abandon this
+              solution.
+            </p>
+          </div>
+        </section>
+        <div style="clear: both;"></div>
+      </div>
+      <h2>The Finsihed Thing</h2>
+      <div class="examples">
+        <div class="example">
+          <img src="/Images/3DGoL.gif" alt="" />
+          <div class="extext">
+            <h3>Final Thing</h3>
+            <p>
+              The final version was compiled with optimisation to further
+              improve performance. If you're interested you can find this code
+              on my github (We used my friend's github but I've forked it), It's
+              precompiled for windows, but you can run and/or compile it
+              yourself if you so desire (you will need to install the libraries,
+              I do not have a guide for this). <br />
+              <br />
+              When you run it, you will see a blank screen, pressing '2' will
+              open the 2D version and '3' the 3D version. The 3D version will
+              look like it's not responding, give it a couple minutes the Game
+              of Life generation code is very slow. Rotation controls use 'W',
+              'A', 'S' and 'D' and movment controls use the arrow keys,
+              generation change can be sped up and slowed down with '-' and '+'.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/JavaScript/Scroll.js"></script>
+  </body>
+</html>
