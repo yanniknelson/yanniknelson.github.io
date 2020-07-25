@@ -41,10 +41,11 @@ header {
     align-items: flex-end;
     padding: 5.5vh;
     padding-top: 0;
-
+    padding-bottom: 2rem;
     .content {
       padding-top: 0;
       h1 {
+        margin-bottom: 1.5rem;
         a {
           text-decoration: none;
           color: inherit;
@@ -54,11 +55,11 @@ header {
         list-style-type: none;
         display: flex;
         justify-content: center;
-        margin-top: 1.1rem;
+        //margin-top: 1.1rem;
         width: 100%;
-
         a {
           text-align: center;
+          font-size: 1.1rem;
           color: $light-color;
           text-decoration: none;
           padding: 0 5.5px 0 5.5px;
