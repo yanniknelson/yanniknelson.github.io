@@ -24,11 +24,12 @@ $anim-time: 0.3s;
     height: 200px;
     position: absolute;
     border-radius: 25px;
+    transition: 0.5s;
     animation-name: fadein;
     animation-duration: $anim-time;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
-    z-index: -1;
+    z-index: 1;
   }
 
   .face.card-top {
@@ -38,7 +39,7 @@ $anim-time: 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 0;
     transform: translateY(100px);
     overflow: hidden;
 
@@ -52,7 +53,6 @@ $anim-time: 0.3s;
       justify-content: center;
       align-items: center;
       opacity: 0.2;
-      transition: 0.2s;
       text-align: left;
 
       img {
@@ -79,6 +79,7 @@ $anim-time: 0.3s;
     box-sizing: border-box;
     transform: translateY(-100px);
     color: $light-color;
+    //z-index: 0;
 
     .content {
       animation-name: descripfadeout;
@@ -114,6 +115,7 @@ $anim-time: 0.3s;
 
   @keyframes fadeout {
     0% {
+      //height: 200px;
       box-shadow: 15px 15px 30px $shadow-dark, -15px -15px 30px $shadow-light;
       opacity: 1;
     }
@@ -121,6 +123,7 @@ $anim-time: 0.3s;
       opacity: 0;
     }
     100% {
+      //height: 400px;
       box-shadow: inset 15px 15px 30px $shadow-dark,
         inset -15px -15px 30px $shadow-light;
       opacity: 1;
@@ -193,10 +196,11 @@ $anim-time: 0.3s;
 
   &:hover {
     .face.card-top {
-      animation-name: imgfadeout;
-      animation-duration: $anim-time;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in-out;
+      // animation-name: imgfadeout;
+      // animation-duration: $anim-time;
+      // animation-fill-mode: forwards;
+      // animation-timing-function: ease-in-out;
+      transform: translateY(0px);
       // opacity: 0;
       // visibility: hidden;
       // .content {
@@ -205,6 +209,7 @@ $anim-time: 0.3s;
     }
 
     .face.card-descrip {
+      transform: translateY(0px);
       .content {
         animation-name: descripfadein;
         animation-duration: $anim-time;
@@ -213,10 +218,13 @@ $anim-time: 0.3s;
       }
 
       .cardshadow {
+        transform: translateY(-100px);
+        height: 400px;
         animation-name: fadeout;
         animation-duration: $anim-time;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in-out;
+        z-index: 1;
       }
     }
   }
