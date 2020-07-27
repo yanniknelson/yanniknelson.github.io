@@ -17,11 +17,13 @@ $anim-time: 0.3s;
     height: 220px;
     transition: 0.5s;
     border-radius: 27.5px;
+    transition: 0.4s;
   }
 
   .cardshadow {
     width: 330px;
     height: 220px;
+    transition: 0.4s;
     position: absolute;
     border-radius: 26.5px;
     animation-name: fadein;
@@ -41,7 +43,7 @@ $anim-time: 0.3s;
     align-items: center;
     z-index: 1;
     transform: translateY(110px);
-    overflow: hidden;
+    //overflow: hidden;
 
     animation-name: imgfadein;
     animation-duration: $anim-time;
@@ -79,6 +81,7 @@ $anim-time: 0.3s;
     box-sizing: border-box;
     transform: translateY(-110px);
     color: $light-color;
+    //transition: 0.2s;
     //z-index: 0;
 
     .content {
@@ -209,8 +212,8 @@ $anim-time: 0.3s;
       }
     }
     .cardshadow {
-      transform: translateY(100px);
-      height: 400px;
+      transform: translateY(110px);
+      height: 440px;
       animation-name: fadeout;
       animation-duration: $anim-time;
       animation-fill-mode: forwards;
