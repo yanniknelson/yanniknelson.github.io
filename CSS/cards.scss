@@ -36,8 +36,8 @@ $anim-time: 0.3s;
   .face.card-top {
     position: relative;
     color: #fff;
-    background: none;
-    //background: $primary-color;
+
+    background: $primary-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,6 +49,14 @@ $anim-time: 0.3s;
     animation-duration: $anim-time;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
+
+    .under-construction {
+      width: 330px;
+      height: 220px;
+      border-radius: 25px;
+      position: absolute;
+      z-index: 2;
+    }
 
     .content {
       display: flex;
@@ -199,6 +207,7 @@ $anim-time: 0.3s;
 
   &:hover {
     .face.card-top {
+      background: none;
       transform: translateY(0px);
     }
 
