@@ -31,6 +31,7 @@ $anim-time: 0.3s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     z-index: 1;
+    pointer-events: none;
   }
 
   .face.card-top {
