@@ -1,9 +1,4 @@
-$primary-color: #222831;
-$secondary-color: #393e46;
-$tertiary-color: #f96d00;
-$light-color: #f2f2f2;
-$shadow-dark: #181d23;
-$shadow-light: #2c333f;
+@import "colours.scss";
 
 ::-webkit-scrollbar {
   width: 0;
