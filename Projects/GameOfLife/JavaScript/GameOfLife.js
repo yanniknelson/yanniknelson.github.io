@@ -3,6 +3,8 @@ world = [];
 width = 48;
 height = 20;
 
+playing = false;
+
 function switch_State(clicked_elem) {
     clicked_elem.classList.toggle("Alive");
 }
@@ -75,11 +77,18 @@ function clearWorld() {
 }
 
 function play() {
-    playHandle = window.setInterval(nextWorld, 400);
+    if (!playing) {
+        playing = true;
+        playHandle = window.setInterval(nextWorld, 400);
+    }
+
 }
 
 function pause() {
-    clearInterval(playHandle)
+    if (playing) {
+        playing = false;
+        clearInterval(playHandle)
+    }
 }
 
 window.onload = function () {
