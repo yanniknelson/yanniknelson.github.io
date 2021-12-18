@@ -71,7 +71,7 @@ main {
 
     .left {
       float: left;
-    }
+    }    
 
     .paragraph {
       display: flex;
@@ -79,6 +79,12 @@ main {
       margin-bottom: 5vh;
       max-width: 90%;
       background: $light-color;
+
+      .big-container {
+        div {
+          display: flex;
+        }
+      }
 
       img {
         max-height: 40vh;
@@ -130,6 +136,7 @@ main {
       .second {
         order: 2;
       }
+
     }
   }
 
@@ -169,6 +176,12 @@ main {
       max-width: min-content;
       margin: auto;
       margin-top: 0;
+
+      .big-container {
+        div {
+          flex-direction: column;
+        }
+      }
 
       img {
         order: 1;
