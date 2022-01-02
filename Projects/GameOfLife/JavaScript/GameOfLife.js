@@ -84,6 +84,19 @@ function play() {
 
 }
 
+function randomise(){
+    clearWorld()
+    randomWorldState = []
+    for (var i = 0; i < height; i++){
+        var row = []
+        for (var j = 0; j < width; j++){
+            row.push(Math.floor(Math.random() * 2));
+        }
+        randomWorldState.push(row)
+    }
+    fillWorld(randomWorldState)
+}
+
 function pause() {
     if (playing) {
         playing = false;
@@ -109,5 +122,6 @@ window.onload = function () {
     document.getElementById("Clear").setAttribute("onClick", "clearWorld()");
     document.getElementById("Play").setAttribute("onClick", "play()");
     document.getElementById("Pause").setAttribute("onClick", "pause()");
+    document.getElementById("Randomise").setAttribute("onClick", "randomise()");
 }
 
