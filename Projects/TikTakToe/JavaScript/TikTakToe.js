@@ -4,7 +4,7 @@ board = []
 current_state = []
 
 function selectCellElement(cell) {
-    if (cell.childElementCount > 0){
+    if (cell.childElementCount > 0 || currentPlayer == computerPlayer || isTerminal(current_state)){
         return;
     }
     var x = parseInt(cell.id[0]);
@@ -18,15 +18,26 @@ function selectCellElement(cell) {
         icon.classList.add("cross");
         currentPlayer = 0
     }
-    cell.appendChild(icon)
-    if (currentPlayer == computerPlayer && !isTerminal(current_state)) {
+    cell.appendChild(icon);
+    if (!isTerminal(current_state)) {
         var move = minmax(current_state);
-        selectCell(move % 3, Math.floor(move/3));
+        current_state[move] = computerPlayer;
+        window.setTimeout(selectCell, 1000, move);
     }
 }
 
-function selectCell(x,y) {
-    selectCellElement(document.getElementById(`${x},${y}`));
+function selectCell(move) {
+
+    var cell = document.getElementById(`${move % 3},${Math.floor(move/3)}`);
+    var icon = document.createElement('div');
+    if (currentPlayer == 0){
+        icon.classList.add("nought");
+        currentPlayer = 1
+    } else {
+        icon.classList.add("cross");
+        currentPlayer = 0
+    }
+    cell.appendChild(icon);
 }
 
 function isTerminal(state) {
