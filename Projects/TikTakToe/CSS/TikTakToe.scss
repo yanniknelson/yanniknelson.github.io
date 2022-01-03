@@ -1,0 +1,77 @@
+@import "../../../CSS/colours.scss";
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 15vw);
+  grid-template-rows: repeat(3, 15vw);
+  column-gap: 2vw;
+  row-gap: 2vw;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 2vw;
+}
+
+.Cell {
+  display: flex;
+  justify-content: center;
+  border-radius: 5%;
+  align-items: center;
+  width: 15vw;
+  height: 15vw;
+  box-shadow: inset 16.5px 16.5px 33px $shadow-dark,
+      inset -16.5px -16.5px 33px $shadow-light;
+}
+
+.nought {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  box-shadow: 16.5px 16.5px 33px $shadow-dark,
+        -16.5px -16.5px 33px $shadow-light;
+  &::after {
+    content: "";
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+    box-shadow: inset 16.5px 16.5px 33px $shadow-dark,
+      inset -16.5px -16.5px 33px $shadow-light;
+  }
+}
+
+.cross {
+  background: $primary-color;
+  height: 11vw;
+  width: 2vw;
+  position: relative;
+  transform: rotate(-45deg);
+  box-shadow: 16.5px 16.5px 33px $shadow-dark,
+        -16.5px -16.5px 33px $shadow-light;
+  &::before {
+    background: $primary-color;
+    content: "";
+    height: 2vw;
+    left: 2vw;
+    top: 4.5vw;
+    position: absolute;
+    width: 4.5vw;
+    clip-path: inset(-40px -40px -40px 0px);
+    box-shadow: 16.5px 16.5px 33px $shadow-dark,
+          -16.5px -16.5px 33px $shadow-light;
+  }
+
+  &::after {
+    background: $primary-color;
+    content: "";
+    height: 2vw;
+    left: -4.5vw;
+    top: 4.5vw;
+    position: absolute;
+    width: 4.5vw;
+    clip-path: inset(-40px 0px -40px -40px);
+    box-shadow: 16.5px 16.5px 33px $shadow-dark,
+          -16.5px -16.5px 33px $shadow-light;
+  }
+}

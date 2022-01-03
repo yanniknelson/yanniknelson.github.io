@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/CSS/main.min.css" />
+  <link rel="stylesheet" href="/CSS/blogPost.min.css" />
+  <link rel="stylesheet" href="/CSS/ScrollBar.min.css" />
+  <link rel="stylesheet" href="/Projects/TikTakToe/CSS/TikTakToe.min.css" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+  <title>Yannik Nelson - TikTakToe</title>
+</head>
+
+<body>
+  <div id="scrollbar"></div>
+  <div id="scrollThumb"></div>
+  <header>
+    <div class="header-container">
+      <div class="content">
+        <h1><a href="/index.html">Yannik Nelson</a></h1>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/yannik-nelson" target="_blank">LinkedIn</a>
+          <a href="https://github.com/yanniknelson" target="_blank">Github</a>
+          <a href="mailto:yannikdanielnelson@gmail.com" target="_blank">Email</a>
+          <a href="/Yannik-Nelson_CV.pdf" target="_blank">CV</a>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </header>
+  <main>
+    <h2>
+      Tik-Tak-Toe
+    </h2>
+    <div class="content">
+      <section class="paragraph left">
+        <div class="blogText">
+          <h3>What is the Game of Life?</h3>
+          <p class="with_header" , style="padding-bottom: 1%;">
+            The game of life is a cellular automiton created by John Conway, a british mathematitian. The game is not
+            played, rather watched, an initial input 'world' is input and then the world is simulated forward.
+            The worlds of the game of life consist of a 2D grid, where each cell can either be alive or dead. The living
+            state of a cell can be determined by the world in the previous time step using rules based on the number of
+            living and dead neighbouring cells and the state of that cell. <br>
+            <br>
+            The rules for Conway's game of life are simple:
+          </p>
+          <ol style="margin-top: 0px; padding-bottom: 1%;">
+            <li>Any live cell with fewer than two live neighbours dies, as if by underpopulation.</li>
+            <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+            <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
+            <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+          </ol>
+
+          
+
+        </div>
+      </section>
+      
+      <div style="clear: both;"></div>
+    </div>
+    <h2>Demo</h2>
+    <div class="board" id="TikTakToe">
+
+  </main>
+  <script src="/JavaScript/Scroll.js"></script>
+  <script src="/Projects/TikTakToe/JavaScript/TikTakToe.js"></script>
+</body>
+
+</html>
