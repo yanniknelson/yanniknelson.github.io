@@ -36,31 +36,29 @@
     <div class="content">
       <section class="paragraph left">
         <div class="blogText">
-          <h3>What is the Game of Life?</h3>
+          <h3>MinMax</h3>
           <p class="with_header" , style="padding-bottom: 1%;">
-            The game of life is a cellular automiton created by John Conway, a british mathematitian. The game is not
-            played, rather watched, an initial input 'world' is input and then the world is simulated forward.
-            The worlds of the game of life consist of a 2D grid, where each cell can either be alive or dead. The living
-            state of a cell can be determined by the world in the previous time step using rules based on the number of
-            living and dead neighbouring cells and the state of that cell. <br>
-            <br>
-            The rules for Conway's game of life are simple:
+            In order to build an AI that can play simple games such as Tik Tak Toe or Connect-4, we are able to use an algorithm known as minmax. 
+            MinMax is acts as an ideal player, and assumes it's playing against another idea player, i.e. at every stage, both players make the best possible move, 
+            however to do this, it needs a way of determining the quality of a move. <br/><br/>
+
+            The algorithm works by creating a list of possible moves, choosing one and passing the resulting game state to the opposing play, which will do the same. 
+            This repeats until the resulting game state is terminal, meaning either a play has won or no more moves can be made, at this point, the player will return 
+            -1 if the computer lost, 1 if the computer won, or 0 if it was a draw. In effect the algorithm has just evaluated a path of moves through the game, returning 
+            the value says "this path is worth this much", then undoes that move so that the next move can be evaluated. Once all the moves have been evaluated the current
+            player will choose the best move for it (either the move with the maximum or minimum value) and return its value. This conintues until all the possible paths of 
+            actions have been evaluated and finally the very top level of the algorithm choses the move with the highest value. <br/><br/>
+            
+            Note that this algorithm is only concerned about winning, not how quickly it will win, this means it may sometimes make descisions that won't result in an immediate 
+            win, even if they are availbe, but if it does so, it will still always win. To value winning sooner rather than later, the depth of each action path should be used 
+            to negatively impact the value of a game (though losses should then gain a value of -infinity to ensure the algorithm doesn't choose a quick loss over a long win).
           </p>
-          <ol style="margin-top: 0px; padding-bottom: 1%;">
-            <li>Any live cell with fewer than two live neighbours dies, as if by underpopulation.</li>
-            <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
-            <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
-            <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
-          </ol>
-
-          
-
         </div>
       </section>
       
       <div style="clear: both;"></div>
     </div>
-    <h2>Demo</h2>
+    <h2>Try and beat MinMax at TikTakToe</h2>
     <div class="board" id="TikTakToe">
 
   </main>

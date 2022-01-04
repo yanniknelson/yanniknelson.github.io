@@ -7,10 +7,10 @@ function selectCellElement(cell) {
     if (cell.childElementCount > 0 || currentPlayer == computerPlayer || isTerminal(current_state)){
         return;
     }
-    var x = parseInt(cell.id[0]);
-    var y = parseInt(cell.id[2]);
+    let x = parseInt(cell.id[0]);
+    let y = parseInt(cell.id[2]);
     current_state[y*3 + x] = currentPlayer;
-    var icon = document.createElement('div');
+    let icon = document.createElement('div');
     if (currentPlayer == 0){
         icon.classList.add("nought");
         currentPlayer = 1
@@ -20,7 +20,7 @@ function selectCellElement(cell) {
     }
     cell.appendChild(icon);
     if (!isTerminal(current_state)) {
-        var move = minmax(current_state);
+        let move = minmax(current_state);
         current_state[move] = computerPlayer;
         window.setTimeout(selectCell, 1000, move);
     }
@@ -28,8 +28,8 @@ function selectCellElement(cell) {
 
 function selectCell(move) {
 
-    var cell = document.getElementById(`${move % 3},${Math.floor(move/3)}`);
-    var icon = document.createElement('div');
+    let cell = document.getElementById(`${move % 3},${Math.floor(move/3)}`);
+    let icon = document.createElement('div');
     if (currentPlayer == 0){
         icon.classList.add("nought");
         currentPlayer = 1
@@ -48,8 +48,8 @@ function isTerminal(state) {
     if (state[6] == state[4] && state[4] == state[2] && state[4] != -1) {
         return true;
     }
-    var sawempty = false
-    for (var i = 0; i < 3; i++) {
+    let sawempty = false
+    for (let i = 0; i < 3; i++) {
         if (state[i*3] == -1 || state[i*3 + 1] == -1 || state[i*3 + 2] == -1) {
             sawempty = true
         }
@@ -81,7 +81,7 @@ function eval(state) {
             return -1;
         }
     }
-    for (var i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
         //check rows
         if (state[i*3] == state[i*3 + 1] && state[i*3 + 1] == state[i*3 + 2]) {
             if (state[i*3 + 1] == computerPlayer) {
@@ -105,15 +105,15 @@ function eval(state) {
 
 function result(state, action, player) {
     //return board state after action (x,y coord for given player)
-    var res = [...state];
+    let res = [...state];
     res[action] = player;
     return res;
 }
 
 function getActions(state) {
     //return list of possible next moves (in x,y coordinates)
-    var actions = []
-    for (var i = 0; i < 9; i++) {
+    let actions = []
+    for (let i = 0; i < 9; i++) {
         if (state[i] == -1) {
             actions.push(i);
         }
@@ -122,13 +122,13 @@ function getActions(state) {
 }
 
 function minmax(state) {
-    var actions = getActions(state);
-    var costs = []
-    for (var i = 0; i < actions.length; i++) {
+    let actions = getActions(state);
+    let costs = []
+    for (let i = 0; i < actions.length; i++) {
         costs.push(min(result(state, actions[i], computerPlayer)));
     }
-    var index = 0;
-    for (var i = 0; i < costs.length; i++) {
+    let index = 0;
+    for (let i = 0; i < costs.length; i++) {
         if (costs[i] > costs[index]) {
             index = i;
         }
@@ -140,9 +140,9 @@ function min(state) {
     if (isTerminal(state)) {
         return eval(state);
     }
-    var v = Infinity;
-    var possibleActions = getActions(state);
-    for (var i = 0; i < possibleActions.length; i++) {
+    let v = Infinity;
+    let possibleActions = getActions(state);
+    for (let i = 0; i < possibleActions.length; i++) {
         v = Math.min(v, max(result(state, possibleActions[i], (computerPlayer + 1) % 2)));
     }
     return v;
@@ -152,9 +152,9 @@ function max(state) {
     if (isTerminal(state)) {
         return eval(state);
     }
-    var v = -Infinity;
-    var possibleActions = getActions(state);
-    for (var i = 0; i < possibleActions.length; i++) {
+    let v = -Infinity;
+    let possibleActions = getActions(state);
+    for (let i = 0; i < possibleActions.length; i++) {
         v = Math.max(v, min(result(state, possibleActions[i], computerPlayer)));
     }
     return v;
@@ -162,16 +162,16 @@ function max(state) {
 
 function resetGame() {
     current_state = []
-    for (var i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
             current_state.push(-1);
     }
 }
 
 window.onload = function () {
-    var container = document.getElementById("TikTakToe");
-    for (var i = 0; i < 3; i++) {
-        var row = [];
-        for (var j = 0; j < 3; j++) {
+    let container = document.getElementById("TikTakToe");
+    for (let i = 0; i < 3; i++) {
+        let row = [];
+        for (let j = 0; j < 3; j++) {
             cell = document.createElement('div');
             cell.classList.add("Cell");
             cell.setAttribute("id", `${j},${i}`);
