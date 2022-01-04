@@ -66,41 +66,41 @@ function isTerminal(state) {
     return !sawempty;
 }
 
-function eval(state) {
+function eval(state, depth) {
     if (state[0] == state[4] && state[4] == state[8]) {
         if (state[4] == computerPlayer) {
-            return 1;
+            return 1 - depth;
         } else {
-            return -1;
+            return -Infinity;
         }
     }
     if (state[6] == state[4] && state[4] == state[2]) {
         if (state[4] == computerPlayer) {
-            return 1;
+            return 1 - depth;
         } else {
-            return -1;
+            return -Infinity;
         }
     }
     for (let i = 0; i < 3; i++) {
         //check rows
         if (state[i*3] == state[i*3 + 1] && state[i*3 + 1] == state[i*3 + 2]) {
             if (state[i*3 + 1] == computerPlayer) {
-                return 1;
+                return 1 - depth;
             } else {
-                return -1;
+                return -Infinity;
             }
         }
         //check columns
         if (state[i] == state[3 + i] && state[3 + i] == state[6 + i]) {
             if (state[3 + i] == computerPlayer) {
-                return 1;
+                return 1 - depth;
             } else {
-                return -1;
+                return -Infinity;
             }
         }
     }
     //must be a draw
-    return 0;
+    return -depth;
 }
 
 function result(state, action, player) {
@@ -125,7 +125,7 @@ function minmax(state) {
     let actions = getActions(state);
     let costs = []
     for (let i = 0; i < actions.length; i++) {
-        costs.push(min(result(state, actions[i], computerPlayer)));
+        costs.push(min(result(state, actions[i], computerPlayer), 1));
     }
     let index = 0;
     for (let i = 0; i < costs.length; i++) {
@@ -136,26 +136,26 @@ function minmax(state) {
     return actions[index];
 }
 
-function min(state) {
+function min(state, depth) {
     if (isTerminal(state)) {
-        return eval(state);
+        return eval(state, depth);
     }
     let v = Infinity;
     let possibleActions = getActions(state);
     for (let i = 0; i < possibleActions.length; i++) {
-        v = Math.min(v, max(result(state, possibleActions[i], (computerPlayer + 1) % 2)));
+        v = Math.min(v, max(result(state, possibleActions[i], (computerPlayer + 1) % 2), depth+1));
     }
     return v;
 }
 
-function max(state) {
+function max(state, depth) {
     if (isTerminal(state)) {
-        return eval(state);
+        return eval(state, depth);
     }
     let v = -Infinity;
     let possibleActions = getActions(state);
     for (let i = 0; i < possibleActions.length; i++) {
-        v = Math.max(v, min(result(state, possibleActions[i], computerPlayer)));
+        v = Math.max(v, min(result(state, possibleActions[i], computerPlayer), depth+1));
     }
     return v;
 }
