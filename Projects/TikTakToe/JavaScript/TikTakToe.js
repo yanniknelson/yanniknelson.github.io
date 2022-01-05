@@ -69,38 +69,38 @@ function isTerminal(state) {
 function eval(state, depth) {
     if (state[0] == state[4] && state[4] == state[8]) {
         if (state[4] == computerPlayer) {
-            return 1 - depth;
-        } else {
-            return -Infinity;
-        }
+            return 1/depth;
+            } else {
+                return -1*depth;
+            }
     }
     if (state[6] == state[4] && state[4] == state[2]) {
         if (state[4] == computerPlayer) {
-            return 1 - depth;
-        } else {
-            return -Infinity;
-        }
+            return 1/depth;
+            } else {
+                return -1*depth;
+            }
     }
     for (let i = 0; i < 3; i++) {
         //check rows
         if (state[i*3] == state[i*3 + 1] && state[i*3 + 1] == state[i*3 + 2]) {
             if (state[i*3 + 1] == computerPlayer) {
-                return 1 - depth;
+                return 1/depth;
             } else {
-                return -Infinity;
+                return -1*depth;
             }
         }
         //check columns
         if (state[i] == state[3 + i] && state[3 + i] == state[6 + i]) {
             if (state[3 + i] == computerPlayer) {
-                return 1 - depth;
+                return 1/depth;
             } else {
-                return -Infinity;
+                return -1*depth;
             }
         }
     }
     //must be a draw
-    return -depth;
+    return 0;
 }
 
 function result(state, action, player) {
