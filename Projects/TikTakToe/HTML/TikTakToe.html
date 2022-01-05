@@ -51,7 +51,9 @@
             
             Note that this algorithm is only concerned about winning, not how quickly it will win, this means it may sometimes make descisions that won't result in an immediate 
             win, even if they are availbe, but if it does so, it will still always win. To value winning sooner rather than later, the depth of each action path should be used 
-            to negatively impact the value of a game (though losses should then gain a value of -infinity to ensure the algorithm doesn't choose a quick loss over a long win).
+            to negatively impact the value of a game, this needs to be done carefully to ensure a loss at any point is always worse than a win (after any number of games). 
+            My method (Not implemented in this version) does this by scaling the wins by 1/depth, and the losses by the depth, leaving draws at 0 and maintaining the heuristic for
+            game state values.
           </p>
         </div>
       </section>
