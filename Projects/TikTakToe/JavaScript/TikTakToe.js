@@ -4,7 +4,7 @@ board = []
 current_state = []
 
 function selectCellElement(cell) {
-    if (cell.childElementCount > 0 || currentPlayer == computerPlayer || isTerminal(current_state)){
+    if (cell.childElementCount > 0 || currentPlayer == computerPlayer || TikTakToe_isTerminal(current_state)){
         return;
     }
     let x = parseInt(cell.id[0]);
@@ -19,8 +19,8 @@ function selectCellElement(cell) {
         currentPlayer = 0
     }
     cell.appendChild(icon);
-    if (!isTerminal(current_state)) {
-        let move = minmax(current_state);
+    if (!TikTakToe_isTerminal(current_state)) {
+        let move = minmax(current_state, TikTakToe_isTerminal, TikTakToe_eval, TikTakToe_getActions, TikTakToe_result);
         current_state[move] = computerPlayer;
         window.setTimeout(selectCell, 1000, move);
     }
@@ -40,7 +40,7 @@ function selectCell(move) {
     cell.appendChild(icon);
 }
 
-function isTerminal(state) {
+function TikTakToe_isTerminal(state) {
     //check diagonals
     if (state[0] == state[4] && state[4] == state[8] && state[4] != -1) {
         return true;
@@ -66,7 +66,7 @@ function isTerminal(state) {
     return !sawempty;
 }
 
-function eval(state) {
+function TikTakToe_eval(state) {
     if (state[0] == state[4] && state[4] == state[8]) {
         if (state[4] == computerPlayer) {
             return 1;
@@ -103,14 +103,14 @@ function eval(state) {
     return 0;
 }
 
-function result(state, action, player) {
+function TikTakToe_result(state, action, player) {
     //return board state after action (x,y coord for given player)
     let res = [...state];
     res[action] = player;
     return res;
 }
 
-function getActions(state) {
+function TikTakToe_getActions(state) {
     //return list of possible next moves (in x,y coordinates)
     let actions = []
     for (let i = 0; i < 9; i++) {
@@ -121,11 +121,11 @@ function getActions(state) {
     return actions;
 }
 
-function minmax(state) {
+function minmax(state, isTerminal, eval, getActions, result) {
     let actions = getActions(state);
     let costs = []
     for (let i = 0; i < actions.length; i++) {
-        costs.push(min(result(state, actions[i], computerPlayer)));
+        costs.push(min(result(state, actions[i], computerPlayer), isTerminal, eval, getActions, result));
     }
     let index = 0;
     for (let i = 0; i < costs.length; i++) {
@@ -136,26 +136,26 @@ function minmax(state) {
     return actions[index];
 }
 
-function min(state) {
+function min(state, isTerminal, eval, getActions, result) {
     if (isTerminal(state)) {
         return eval(state);
     }
     let v = Infinity;
     let possibleActions = getActions(state);
     for (let i = 0; i < possibleActions.length; i++) {
-        v = Math.min(v, max(result(state, possibleActions[i], (computerPlayer + 1) % 2)));
+        v = Math.min(v, max(result(state, possibleActions[i], (computerPlayer + 1) % 2), isTerminal, eval, getActions, result));
     }
     return v;
 }
 
-function max(state) {
+function max(state, isTerminal, eval, getActions, result) {
     if (isTerminal(state)) {
         return eval(state);
     }
     let v = -Infinity;
     let possibleActions = getActions(state);
     for (let i = 0; i < possibleActions.length; i++) {
-        v = Math.max(v, min(result(state, possibleActions[i], computerPlayer)));
+        v = Math.max(v, min(result(state, possibleActions[i], computerPlayer), isTerminal, eval, getActions, result));
     }
     return v;
 }
