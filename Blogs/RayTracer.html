@@ -175,18 +175,8 @@
               seen from the smooth shaded and textured examples.<br> 
               <br />
               You may notice the lighting is off on the last two example images, I accidentally scaled down the normals (resulting in dimmer lighting) and needed to
-              implement self shadowing correctly for triangle meshes. Both of these issues were fixed in my final version.
-            </p>
-          </div>
-        </section>
-        <section class="paragraph right">
-          <img src="/Images/RayTracer/TextureMapping.png" alt="" class="first" />
-          <div class="blogText">
-            <h3>Texture Mapping</h3>
-            <p class="with_header">
-              Texture mapping again involved incorporating extra data in the results of an intersection, in this case the uv coordinate of the intersection. 
-              This coorindate system maps the surface of the object to the range [0,1]<sup>2</sup>. The coordinates can then be used to select a pixel from 
-              a corresponding texture which shall be used as the diffuse colour of the object.
+              implement self shadowing correctly for triangle meshes. Both of these issues were fixed in my final version at the bottom of this page, this is exemplified 
+              by the shadow the card casts on the hat, the shadow the hat casts on the clock and the shadow the rim of the clock casts on the clock face.
             </p>
           </div>
         </section>
