@@ -71,14 +71,14 @@ function TikTakToe_eval(state, depth) {
         if (state[4] == computerPlayer) {
             return 1/depth;
             } else {
-                return -1*depth;
+                return -1/depth;
             }
     }
     if (state[6] == state[4] && state[4] == state[2]) {
         if (state[4] == computerPlayer) {
             return 1/depth;
             } else {
-                return -1*depth;
+                return -1/depth;
             }
     }
     for (let i = 0; i < 3; i++) {
@@ -87,7 +87,7 @@ function TikTakToe_eval(state, depth) {
             if (state[i*3 + 1] == computerPlayer) {
                 return 1/depth;
             } else {
-                return -1*depth;
+                return -1/depth;
             }
         }
         //check columns
@@ -95,7 +95,7 @@ function TikTakToe_eval(state, depth) {
             if (state[3 + i] == computerPlayer) {
                 return 1/depth;
             } else {
-                return -1*depth;
+                return -1/depth;
             }
         }
     }
