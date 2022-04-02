@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/CSS/main.min.css" />
+  <link rel="stylesheet" href="/CSS/blogPost.min.css" />
+  <link rel="stylesheet" href="/CSS/ScrollBar.min.css" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+  <title>Yannik Nelson - GameOfLife</title>
+</head>
+
+<body>
+  <div id="scrollbar"></div>
+  <div id="scrollThumb"></div>
+  <header>
+    <div class="header-container">
+      <div class="content">
+        <h1><a href="/index.html">Yannik Nelson</a></h1>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/yannik-nelson" target="_blank">LinkedIn</a>
+          <a href="https://github.com/yanniknelson" target="_blank">Github</a>
+          <a href="mailto:yannikdanielnelson@gmail.com" target="_blank">Email</a>
+          <a href="/Yannik-Nelson_CV.pdf" target="_blank">CV</a>
+        </div>
+      </div>
+    </div>
+    <hr/>
+  </header>
+  <main>
+    <h2>
+      Q-Net Render
+    </h2>
+    <div class="content">
+      <section class="paragraph left">
+        <div class="blogText">
+          <h3>What Is This?</h3>
+          <p class="with_header" , style="padding-bottom: 1%;">
+            For my dissertation, my project was to implement a new method to be used in volumetric rendering. 
+            This method used neural networks to represent the data of the volume and then used 'Q-Nets' to itegrate that network along rays to find the optical depth along that ray.
+          </p>
+        </div>
+      </section>
+      <section class="paragraph right">
+        <div class="blogText">
+          <h3>Optical Detph</h3>
+          <p class="with_header" , style="padding-bottom: 1%;">
+            In the volumetric rendering I was concerned with, there were 2 phenomina I wanted to account for:
+          </p>
+          <ul style="margin-top: 0px; padding-bottom: 0%;">
+            <li>Absorption: when a photon hits a particle in the volume and is absorbed
+              by that particle, stopping the photon’s transport through the volume.</li>
+            <li>Scattering: when light hits a particle in the volume and is reflected off into
+              a new direction. We are only concerned with two cases of scattering:
+              <ul>
+                <li>Out-scattering: where light traveling in the direction of interest is scattered
+                  and begins traveling in a direction that will not contribute the luminance of
+                  interest.</li>
+                <li>In-scattering: where light travelling in other directions scatters into the
+                  direction of interest.</li>
+              </ul>
+            </li>
+          </ul>
+          <p class="with_header", style="padding-bottom: 1%;">
+            These phenomina determine the proportion of light that makes it from point a to point b. Out-scatterign and absorption are indistinguishable 
+            from the viewers perspective (it doens't matter which occured, just that some of the light is no longer going to reach point b). </br> 
+            </br>
+            The likelyhood of a photon being absorbed or scattered depends on how the total volume density the photon encounters along its path through the volume, this is the optical depth.
+            If the density of the volume is homogeneous then this is the density of the cloud times the distance the photon would travel 
+            through the volume. If the volume is non-homogenous and can't be described with an integratable function, then numerical approaches need to be take to calculate this.</br>
+          </br>
+            My method attempts to represent the density distribution within the volume as an integratable function using a neural network, allowing analytical integration to calculate 
+            the optical depth.
+          </p>
+        </div>
+      </section>
+      <section class="paragraph left">
+        <div class="blogText">
+          <h3>Q-Net</h3>
+          <p class="with_header" , style="padding-bottom: 1%;">
+            Neural networks with a single hidden layer with sigmoid activation and a single linear output node have been shown to be integratable. 
+            A Q-Net is a re-ordering of the equation for this integration to allow parts of the equation to be performed as another neural network.</br>
+          </br>
+          Please Note: the shader implementation below uses the Q-Net re-ordering, but due to the limitations of GLSL (limited matrix sizes) doesn't use the matrix 
+          multiplications that speed up neural network evaluation.
+          </p>
+        </div>
+      </section>
+      <section class="paragraph right">
+        <div class="blogText">
+          <h3>My Method</h3>
+          <p class="with_header" , style="padding-bottom: 1%;">
+            My method operates in 4 steps (per ray):
+          </p>
+          <ol style="margin-top: 0px; padding-bottom: 0%;">
+            <li>Find the ray intersection point with volume bounds and the length of that intersection.</li>
+            <li>Transform the X-axis of the neural network to align with the ray direction and place the origin of neural network at the intersection point</li>
+            <li>Slice the Y and Z axes of the neural network at 0</li>
+            <li>Integrate the neural network (now only along the X-axis) from 0 to the length of the ray</li>
+          </ol>
+          <p class="with_header", style="padding-bottom: 1%;">
+            This provides us with the optical depth along the ray within the function represented by the neural network.</br>
+          </br>
+            The accuracy of this method to the example data depends heavily on the training of the neural network, the more accurate the network is, 
+            the better the reulst of the method will be.
+          </p>
+        </div>
+      </section>
+      <section class="paragraph left">
+        <div class="blogText">
+          <h3>Demo</h3>
+          <p class="with_header" , style="padding-bottom: 1%;">
+            Below is a shader implementation of this method written using ThreeJS, WebGL and GLSL. This shader simply calculated the optical depth along aray and uses it to mix between black and white. 
+            You can use your mouse to interact with the demo: left click allows you to rotate the view; scroll zooms in and out; and right click lets you shift the view.</br>
+          </br> 
+            Note: there are some obvious bugs such as a corner of the bounds being constantly visible and noisy white dots however these will be fixed in time.
+          </p>
+        </div>
+      </section>
+      <div style="clear: both;"></div>
+    </div>
+    <h2>Demo</h2>
+    <iframe width="100%" height="500" src=/Projects/Diss/ShaderCode/diss.html frameborder="0"></iframe>
+  </main>
+  <script src="/JavaScript/Scroll.js"></script>
+</body>
+
+</html>
