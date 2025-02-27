@@ -71,7 +71,7 @@ main {
 
     .left {
       float: left;
-    }    
+    }
 
     .paragraph {
       display: flex;
@@ -117,6 +117,18 @@ main {
           padding: .5% 3% .5% 3%;
         }
 
+        .second_left_align {
+          th:nth-of-type(2) {
+            text-align: left;
+          }
+        }
+
+        .third_left_align {
+          th:nth-of-type(3) {
+            text-align: left;
+          }
+        }
+
         .darkText {
           color: $secondary-color;
         }
@@ -137,9 +149,9 @@ main {
           padding-top: 0;
         }
 
-        a {
+        a, a:visited{
           text-decoration: underline;
-          color: $primary-color;
+          color: $button-colour;
 
           &:hover {
             font-weight: 800;

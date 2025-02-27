@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <hr />
+      <hr/>
     </header>
     <main>
       <h2>
@@ -36,13 +36,13 @@
             <h3>Overview</h3>
             <p class="with_header with_list_bellow">
               My sense of humor has led to my enjoyment and facination with esoteric programming languages.
-              To explore this interest, I've started building a IDE of sorts to write, interpret
-              , visualise and compile various esoteric languages. As of right now, only <em>Piet</em> has been implemented 
+              To explore this interest, I've started building a IDE of sorts to write, interpret, visualise
+              and compile various esoteric languages. As of right now, only <em>Piet</em> has been implemented 
               but I also intend on adding support for:
             </p>
             <ol>
               <li>
-                  BrainF*ck
+                  Brainf*ck
               </li>
               <li>
                   COW
@@ -51,8 +51,9 @@
                   Auld Lang
               </li>
             </ol>
-            <!-- <p class="with_list_above">
-            </p> -->
+            <p class="with_list_above">
+              You can take a look at the project in my <a href="https://github.com/yanniknelson/EsoProg">Github</a>
+            </p>
           </div>
         </section>
         <div style="clear: both;"></div>
@@ -143,276 +144,234 @@
             </table>
           </div>
         </section>
-        <div style="clear: both;"></div>
-      </div>
-        <h2>Brain F*CK</h2>
-      <div class="content">
         <section class="paragraph left">
           <div class="blogText">
-            <p class="no_header with_list_bellow">
-              Piet is a stack based programming language where you use groups of pixels in an image and the transition between these groups as instructions instead of keywords.</br>
-              The colour pallete is ordered consists of Light, Normal and Dark shades of Red, Yellow, Green, Cyan, Blue and Magenta. The change in hue and brightness of these colours
-              is used to index into a table of commands:
+            <h3>Brainf*ck</h3>
+            <p class="with_header with_list_bellow">
+              Brainf*ck is one of the most famous esoteric programming language, it's main focus is on being  difficult to read and understand; thus the name.</br>
+              Brainf*ck assumes an array of (normally) 30,000 8-bit values (initialized to 0) which wraps around at either end. The program starts with its focus on the first item in this array.
+              This is very similar to a Turing Machine which operates on an infinite tape of 1s and 0s. The instructions are:
             </p>
-            <table class="darkText with_list_bellow">
-              <tbody>
+            <table class="second_left_align">
+              <tbody >
                 <tr>
-                  <td style="background-color: rgb(255, 192, 192);">Light red</td>
-                  <td style="background-color: rgb(255, 255, 192);">Light yellow</td>
-                  <td style="background-color: rgb(192, 255, 192);">Light green</td>
-                  <td style="background-color: rgb(192, 255, 255);">Light cyan</td>
-                  <td style="background-color: rgb(192, 192, 255);">Light blue</td>
-                  <td style="background-color: rgb(255, 192, 255);">Light magenta</td>
+                  <th>Instruction</th>
+                  <th style="text-align: center;">Action</th>
                 </tr>
                 <tr>
-                  <td style="background-color: rgb(255, 0, 0);">Red</td>
-                  <td style="background-color: rgb(255, 255, 0);">Yellow</td>
-                  <td style="background-color: rgb(0, 255, 0);">Green</td>
-                  <td style="background-color: rgb(0, 255, 255);">Cyan</td>
-                  <td style="background-color: rgb(0, 0, 255);">Blue</td>
-                  <td style="background-color: rgb(255, 0, 255);">Magenta</td>
+                  <th>&gt</th>
+                  <th>Move focus to the next cell</th>
                 </tr>
                 <tr>
-                  <td style="background-color: rgb(204, 0, 0);">Dark red</td>
-                  <td style="background-color: rgb(192, 192, 0);">Dark yellow</td>
-                  <td style="background-color: rgb(0, 192, 0);">Dark green</td>
-                  <td style="background-color: rgb(0, 192, 192);">Dark cyan</td>
-                  <td style="background-color: rgb(0, 0, 192);">Dark blue</td>
-                  <td style="background-color: rgb(192, 0, 192);">Dark magenta</td>
-                </tr>
-              </tbody>
-            </table>
-            <table class="">
-              <tbody>
-                <tr>
-                  <th rowspan="2">Hue change</th>
-                  <th colspan="3">Lightness change</th>
+                  <th>&lt</th>
+                  <th>Move focus to the previous cell</th>
                 </tr>
                 <tr>
-                  <th>No change</th>
-                  <th>1 darker</th>
-                  <th>2 darker</th>
+                  <th>+</th>
+                  <th>Increment the value in the current cell</th>
                 </tr>
                 <tr>
-                  <th>No change</th>
-                  <td>N/A</td>
-                  <td>Push</td>
-                  <td>Pop</td>
+                  <th>-</th>
+                  <th>decrement the value in the current cell</th>
                 </tr>
                 <tr>
-                  <th>1 step</th>
-                  <td>Add</td>
-                  <td>Subtract</td>
-                  <td>Multiply</td>
+                  <th>.</th>
+                  <th>Output the value in current cell as a char</th>
                 </tr>
                 <tr>
-                  <th>2 steps</th>
-                  <td>Divide</td>
-                  <td>Modulo</td>
-                  <td>Not</td>
+                  <th>,</th>
+                  <th>Input char into the current cell</th>
                 </tr>
                 <tr>
-                  <th>3 steps</th>
-                  <td>Greater</td>
-                  <td>Pointer</td>
-                  <td>Switch</td>
+                  <th>[</th>
+                  <th>If the current cell's value is 0, jump execute to after the matching ']', otherwise continue execution</th>
                 </tr>
                 <tr>
-                  <th>4 steps</th>
-                  <td>Duplicate</td>
-                  <td>Roll</td>
-                  <td>Input num</td>
-                </tr>
-                <tr>
-                  <th>5 steps</th>
-                  <td>Input char</td>
-                  <td>Output num</td>
-                  <td>Output char</td>
+                  <th>]</th>
+                  <th>If the current cell's value is 0, jump back to immediately after the matching '[', otherwise continue execution</th>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
-        <div style="clear: both;"></div>
-      </div>
-        <h2>COW</h2>
-      <div class="content">
         <section class="paragraph right">
           <div class="blogText">
-            <p class="no_header with_list_bellow">
-              Piet is a stack based programming language where you use groups of pixels in an image and the transition between these groups as instructions instead of keywords.</br>
-              The colour pallete is ordered consists of Light, Normal and Dark shades of Red, Yellow, Green, Cyan, Blue and Magenta. The change in hue and brightness of these colours
-              is used to index into a table of commands:
+            <h3>COW</h3>
+            <p class="with_header with_list_bellow">
+              COW is a based on Brainf*ck with a couple extra instructions. It's easily one of the silliest languages I've come accross with every 
+              command being a mix up of order and captilisation of the word moo.
             </p>
-            <table class="darkText with_list_bellow">
-              <tbody>
+            <table class="third_left_align">
+              <tbody >
                 <tr>
-                  <td style="background-color: rgb(255, 192, 192);">Light red</td>
-                  <td style="background-color: rgb(255, 255, 192);">Light yellow</td>
-                  <td style="background-color: rgb(192, 255, 192);">Light green</td>
-                  <td style="background-color: rgb(192, 255, 255);">Light cyan</td>
-                  <td style="background-color: rgb(192, 192, 255);">Light blue</td>
-                  <td style="background-color: rgb(255, 192, 255);">Light magenta</td>
+                  <th>Instruction Value</th>
+                  <th>Instruction</th>
+                  <th style="text-align: center;">Action</th>
                 </tr>
                 <tr>
-                  <td style="background-color: rgb(255, 0, 0);">Red</td>
-                  <td style="background-color: rgb(255, 255, 0);">Yellow</td>
-                  <td style="background-color: rgb(0, 255, 0);">Green</td>
-                  <td style="background-color: rgb(0, 255, 255);">Cyan</td>
-                  <td style="background-color: rgb(0, 0, 255);">Blue</td>
-                  <td style="background-color: rgb(255, 0, 255);">Magenta</td>
+                  <th>0</th>
+                  <th>moo</th>
+                  <th>Search the program text backwards (skipping the previous instruction) and jump to the matching 'MOO' command</th>
                 </tr>
                 <tr>
-                  <td style="background-color: rgb(204, 0, 0);">Dark red</td>
-                  <td style="background-color: rgb(192, 192, 0);">Dark yellow</td>
-                  <td style="background-color: rgb(0, 192, 0);">Dark green</td>
-                  <td style="background-color: rgb(0, 192, 192);">Dark cyan</td>
-                  <td style="background-color: rgb(0, 0, 192);">Dark blue</td>
-                  <td style="background-color: rgb(192, 0, 192);">Dark magenta</td>
-                </tr>
-              </tbody>
-            </table>
-            <table class="">
-              <tbody>
-                <tr>
-                  <th rowspan="2">Hue change</th>
-                  <th colspan="3">Lightness change</th>
+                  <th>1</th>
+                  <th>mOo</th>
+                  <th>Move focus to the next cell</th>
                 </tr>
                 <tr>
-                  <th>No change</th>
-                  <th>1 darker</th>
-                  <th>2 darker</th>
+                  <th>2</th>
+                  <th>moO</th>
+                  <th>Move focus to the previous cell</th>
                 </tr>
                 <tr>
-                  <th>No change</th>
-                  <td>N/A</td>
-                  <td>Push</td>
-                  <td>Pop</td>
+                  <th>3</th>
+                  <th>mOO</th>
+                  <th>Execute the value in the current cell as a command (if out of range then exit program)</th>
                 </tr>
                 <tr>
-                  <th>1 step</th>
-                  <td>Add</td>
-                  <td>Subtract</td>
-                  <td>Multiply</td>
+                  <th>4</th>
+                  <th>moo</th>
+                  <th>If the current cell's value is 0, input char into the current cell, otherwise output the current cell as a char</th>
                 </tr>
                 <tr>
-                  <th>2 steps</th>
-                  <td>Divide</td>
-                  <td>Modulo</td>
-                  <td>Not</td>
+                  <th>5</th>
+                  <th>MOo</th>
+                  <th>Decrement the value in the current cell</th>
                 </tr>
                 <tr>
-                  <th>3 steps</th>
-                  <td>Greater</td>
-                  <td>Pointer</td>
-                  <td>Switch</td>
+                  <th>6</th>
+                  <th>MoO</th>
+                  <th>Increment the value in the current cell</th>
                 </tr>
                 <tr>
-                  <th>4 steps</th>
-                  <td>Duplicate</td>
-                  <td>Roll</td>
-                  <td>Input num</td>
+                  <th>7</th>
+                  <th>MOO</th>
+                  <th>If the current cell's value is 0, search for the matching 'moo' command (ignoring the next command) and resume execution immediately after it, otherwise continue execution</th>
                 </tr>
                 <tr>
-                  <th>5 steps</th>
-                  <td>Input char</td>
-                  <td>Output num</td>
-                  <td>Output char</td>
+                  <th>8</th>
+                  <th>OOO</th>
+                  <th>Set the current cell to 0</th>
+                </tr>
+                <tr>
+                  <th>9</th>
+                  <th>MMM</th>
+                  <th>If register is empty, copy the value in the current cell into the register, otherwise set the current cell to the value of the register and clear it</th>
+                </tr>
+                <tr>
+                  <th>10</th>
+                  <th>OOM</th>
+                  <th>Output the value of the current cell as an Integer</th>
+                </tr>
+                <tr>
+                  <th>11</th>
+                  <th>oom</th>
+                  <th>Input Integer into the current cell</th>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
-        <div style="clear: both;"></div>
-      </div>
-        <h2>Auld Lang</h2>
-      <div class="content">
         <section class="paragraph left">
           <div class="blogText">
-            <p class="no_header with_list_bellow">
-              Piet is a stack based programming language where you use groups of pixels in an image and the transition between these groups as instructions instead of keywords.</br>
-              The colour pallete is ordered consists of Light, Normal and Dark shades of Red, Yellow, Green, Cyan, Blue and Magenta. The change in hue and brightness of these colours
-              is used to index into a table of commands:
+            <h3>Auld Lang</h3>
+            <p class="with_header with_list_bellow">
+              Auld Lang is another Brainf*ck inspired language, this time based on the Scots song Auld Lang Syne by Robert Burns </br>
+              Instructions are formatted <em>&ltCommand&gt[&ltTerminator&gt?]\n</em>. Terminators are optional secondary effects any command can be given. </br>
+              Arguments are provided as the number of characters (not including the first space; the terminator or newline) following a command.
             </p>
-            <table class="darkText with_list_bellow">
-              <tbody>
+            <table>
+              <tbody style="vertical-align: top;">
                 <tr>
-                  <td style="background-color: rgb(255, 192, 192);">Light red</td>
-                  <td style="background-color: rgb(255, 255, 192);">Light yellow</td>
-                  <td style="background-color: rgb(192, 255, 192);">Light green</td>
-                  <td style="background-color: rgb(192, 255, 255);">Light cyan</td>
-                  <td style="background-color: rgb(192, 192, 255);">Light blue</td>
-                  <td style="background-color: rgb(255, 192, 255);">Light magenta</td>
-                </tr>
-                <tr>
-                  <td style="background-color: rgb(255, 0, 0);">Red</td>
-                  <td style="background-color: rgb(255, 255, 0);">Yellow</td>
-                  <td style="background-color: rgb(0, 255, 0);">Green</td>
-                  <td style="background-color: rgb(0, 255, 255);">Cyan</td>
-                  <td style="background-color: rgb(0, 0, 255);">Blue</td>
-                  <td style="background-color: rgb(255, 0, 255);">Magenta</td>
-                </tr>
-                <tr>
-                  <td style="background-color: rgb(204, 0, 0);">Dark red</td>
-                  <td style="background-color: rgb(192, 192, 0);">Dark yellow</td>
-                  <td style="background-color: rgb(0, 192, 0);">Dark green</td>
-                  <td style="background-color: rgb(0, 192, 192);">Dark cyan</td>
-                  <td style="background-color: rgb(0, 0, 192);">Dark blue</td>
-                  <td style="background-color: rgb(192, 0, 192);">Dark magenta</td>
-                </tr>
-              </tbody>
-            </table>
-            <table class="">
-              <tbody>
-                <tr>
-                  <th rowspan="2">Hue change</th>
-                  <th colspan="3">Lightness change</th>
-                </tr>
-                <tr>
-                  <th>No change</th>
-                  <th>1 darker</th>
-                  <th>2 darker</th>
-                </tr>
-                <tr>
-                  <th>No change</th>
-                  <td>N/A</td>
-                  <td>Push</td>
-                  <td>Pop</td>
-                </tr>
-                <tr>
-                  <th>1 step</th>
-                  <td>Add</td>
-                  <td>Subtract</td>
-                  <td>Multiply</td>
-                </tr>
-                <tr>
-                  <th>2 steps</th>
-                  <td>Divide</td>
-                  <td>Modulo</td>
-                  <td>Not</td>
-                </tr>
-                <tr>
-                  <th>3 steps</th>
-                  <td>Greater</td>
-                  <td>Pointer</td>
-                  <td>Switch</td>
-                </tr>
-                <tr>
-                  <th>4 steps</th>
-                  <td>Duplicate</td>
-                  <td>Roll</td>
-                  <td>Input num</td>
-                </tr>
-                <tr>
-                  <th>5 steps</th>
-                  <td>Input char</td>
-                  <td>Output num</td>
-                  <td>Output char</td>
+                  <th>  
+                    <table style="text-align: left;">
+                      <tbody>
+                        <tr style="text-align: center;">
+                          <th>Command</th>
+                          <th>Action</th>
+                        </tr>
+                        <tr>
+                          <th>Happy &ltarg&gt</th>
+                          <th>Set the value of the current cell to the size of the argument (the argument can't be 0)</th>
+                        </tr>
+                        <tr>
+                          <th>Should auld acquaintance be forgot</th>
+                          <th>Repeat the next line until the the current cell has a value of 0</th>
+                        </tr>
+                        <tr>
+                          <th>For auld lang syne &ltarg&gt </th>
+                          <th>Ouput the value of the current cell as a char then shift focus forwards by the argument</th>
+                        </tr>
+                        <tr>
+                          <th>Sin aul lang syne &ltarg&gt</th>
+                          <th>Ouput the value of the current cell as a char then shift focus backwards by the argument</th>
+                        </tr>
+                        <tr>
+                          <th>We'll &ltarg&gt</th>
+                          <th>Decrement the value of the current cell by the argument</th>
+                        </tr>
+                        <tr>
+                          <th>And &ltarg&gt</th>
+                          <th>Increment the value of the current cell by the argument</th>
+                        </tr>
+                        <tr>
+                          <th>Frea &ltarg&gt</th>
+                          <th>Shift focus forwards by the argument</th>
+                        </tr>
+                        <tr>
+                          <th>We &ltarg&gt</th>
+                          <th>If the value of the current cell is less than the argument, jump to immediately after the next 'But' (or the end of the program), otherwise continue execution</th>
+                        </tr>
+                        <tr>
+                          <th>But &ltarg&gt</th>
+                          <th>If the value of the current cell is less than the argument, jump to the previous 'We', otherwise continue execution</th>
+                        </tr>
+                        <tr>
+                          <th>Kevlin</th>
+                          <th>Dump state after every instruction</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </th>
+                  <th>
+                    <table class="second_left_align with_list_bellow">
+                      <tbody>
+                        <tr>
+                          <th>Terminator</th>
+                          <th style="text-align: center;">Action</th>
+                        </tr>
+                        <tr>
+                          <th>!</th>
+                          <th>Move focus to the next cell</th>
+                        </tr>
+                        <tr>
+                          <th>;</th>
+                          <th>Move focus to the previous cell</th>
+                        </tr>
+                        <tr>
+                          <th>,</th>
+                          <th>Increment the current cell's value</th>
+                        </tr>
+                        <tr>
+                          <th>.</th>
+                          <th>Decrement the current cell's value</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </th>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
+        <section class="paragraph right">
+            <div class="blogText">
+              <h3>Source</h3>
+              <p class="with_header">
+                My source for all the information about these languages has been <a href="https://esolangs.org/wiki/Main_Page">EsoLang</a>
+              </p>
+            </div>
+          </section>
         <div style="clear: both;"></div>
       </div>
     </main>
