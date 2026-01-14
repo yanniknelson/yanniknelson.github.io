@@ -54,7 +54,7 @@ $anim-time: 0.3s;
       z-index: 2;
     }
 
-    .content {
+    .card-content {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -88,7 +88,7 @@ $anim-time: 0.3s;
     //transition: 0.2s;
     //z-index: 0;
 
-    .content {
+    .card-content {
       animation-name: descripfadeout;
       animation-duration: $anim-time * 0.6;
       animation-fill-mode: forwards;
@@ -209,7 +209,7 @@ $anim-time: 0.3s;
 
     .face.card-descrip {
       transform: translateY(0px);
-      .content {
+      .card-content {
         animation-name: descripfadein;
         animation-duration: $anim-time;
         animation-fill-mode: forwards;

@@ -14,6 +14,25 @@
   background-color: $primary-color;
 }
 
+.employment-container {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 37.5px 0 37.5px 0;
+  font-size: 16px;
+  width: 100%;
+  box-shadow: inset 15px 15px 30px $shadow-dark,
+    inset -15px -15px 30px $shadow-light;
+  background-color: $primary-color;
+
+  .employment-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
 .coding-container {
   display: flex;
   flex-direction: row;

@@ -1,0 +1,10 @@
+{
+  "liveSassCompile.settings.formats": [
+      {
+        // compress the css file
+        "format": "compressed",
+        // add .min.css as the extension
+        "extensionName": ".min.css", 
+      }
+    ] 
+}

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/CSS/main.min.css" />
     <link rel="stylesheet" href="/CSS/cards.min.css" />
     <link rel="stylesheet" href="/CSS/ScrollBar.min.css" />
+    <link rel="stylesheet" href="/CSS/blogPostContent.min.css" />
     <link rel="stylesheet" href="/CSS/HomePage.min.css" />
     <title>Yannik Nelson</title>
   </head>
@@ -36,6 +37,65 @@
     </header>
 
     <main>
+      <h2>Game Development Experience</h2>
+        <div class="blog-content">
+          <section class="paragraph left">
+            <img src="/Images/CIG_Logo.jpg" alt="" class="first" />
+            <div class="blogText">
+              <h3 class="with_subtitle">Cloud Imperium Games (Full Time)</h3>
+              <h4 class="with_header">October 2022 - Present</h4>
+              <p class="with_header">
+                At CIG I have ownership of an important game play system which I have supported through core engine changes including entity streaming, persistence and in some parts server meshing.
+                I have spearheaded the design and implementation of a replacement for this system with a focus on stability and scalability as play numbers grows,
+                while also trying to give players a better experience than before. 
+                <br><br> I have cooperated closely with the core engine teams to both use and sometimes aid in the design of new engine features.<br><br>
+                While at CIG I have gained considerable experience working in highly parallel environments as well as 
+                with complex systems and engine features such as entity streaming, persistence and server meshing.
+              </p>
+            </div>
+          </section>
+          <div style="clear: both;"></div>
+          <section class="paragraph right">
+            <img src="/Images/rockstar_logo.png" alt="" class="second" />
+            <div class="blogText">
+              <h3 class="with_subtitle">Rockstar (Internship)</h3>
+              <h4 class="with_header">June 2022 - August 2022</h4>
+              <p class="with_header">
+                While with rockstar games I performed general bug fixing and refactoring for GTA 6.
+                This was also my first introduction to perforce, Jira, ImGui and data driven design.
+              </p>
+            </div>
+          </section>
+          <div style="clear: both;"></div>
+          <section class="paragraph left">
+            <img src="/Images/yaldi_logo.png" alt="" class="first" />
+            <div class="blogText">
+              <h3 class="with_subtitle">Yaldi (Internship)</h3>
+              <h4 class="with_header">June 2021 - August 2021</h4>
+              <p class="with_header">
+                For Yaldi Games, I developed a weather manager (and effects) in C++ (Unreal Engine) for their game "Wholesome"
+              </p>
+            </div>
+          </section>
+          <div style="clear: both;"></div>
+          <section class="paragraph right">
+            <img src="/Images/corporateClash.webp" alt="" class="second" />
+            <div class="blogText">
+              <h3 class="with_subtitle">Rockstar (Internship)</h3>
+              <h4 class="with_header">June 2022 - August 2022</h4>
+              <p class="with_header">
+                In my second year of university I become a volunteer game developer for "ToonTown: Corporate Clash" a comunity maintained revival
+                of the disney MMO "ToonTown: Online". This was one of the first large scale projects I worked on and my first introduction to
+                networking and serializing.<br><br>
+                While working on Corporate Clash I was bug fixing and wrote the foundation for controller support. Unfortunately this was at the
+                same time as a UI re-work so controller UI support needed to wait until that was finished and by the time is was finished I had to
+                dedicate more time to uni work. 
+              </p>
+            </div>
+          </section>
+          <div style="clear: both;"></div>
+        </div>
+      </div>
       <h2>Coding Projects</h2>
       <div class="coding-container">
         <!-- <div class="coding-row"> -->
@@ -43,7 +103,7 @@
             <div class="face card-top" id="ESPROG">
               <div class="cardshadow"></div>
   
-              <div class="content">
+              <div class="card-content">
                 <img
                   src="/Images/EsoProg.png"
                   alt="Line Drawing of a box from an orthoganal view"
@@ -52,7 +112,7 @@
               </div>
             </div>
             <div class="face card-descrip">
-              <div class="content">
+              <div class="card-content">
                 <p>
                   My current favourite pet project is an interpreter/compiler playground for esoteric programming languages such as Piet and Brainf*ck.
                 </p>
@@ -64,7 +124,7 @@
           <div class="face card-top" id="QNETRNDR">
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img
                 src="/Images/Volume_Rendering.png"
                 alt="Line Drawing of a box from an orthoganal view"
@@ -73,7 +133,7 @@
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 For my final year dissertation I developed a method to use
                 neural networks to perform volumetric rendering. WARNING: 
@@ -93,7 +153,7 @@
             /> -->
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img
                 src="/Images/HaskellRenderer.png"
                 alt="Line Drawing of a box from an orthoganal view"
@@ -102,7 +162,7 @@
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 In my first year of University I took part in a haskell coding
                 competition. For this competition my team decided to make a 3D
@@ -122,7 +182,7 @@
             /> -->
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img
                 src="/Images/RayTracer.png"
                 alt="Line Drawing of a Camera with rays coming out of it"
@@ -131,7 +191,7 @@
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 In my third year of University I took the computer graphics
                 course. For this course, the second coursework was to produce
@@ -150,7 +210,7 @@
             />
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img
                 src="/Images/SecretHitler.png"
                 alt="Line drawing of lizard in a hat"
@@ -159,7 +219,7 @@
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 During the COVID lockdown my friends and I decided we wanted to
                 play the board game Secret Hitler. Unfortunately we were unable
@@ -179,7 +239,7 @@
             />
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img
                 src="/Images/PathFinding.png"
                 alt="Line drawing of path through a maze"
@@ -188,7 +248,7 @@
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 A visualiser for differnet path-finding algorithms including A*,
                 Dijkstra, greedy best-first and more. The ability to generate
@@ -208,7 +268,7 @@
             />
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img
                 src="/Images/FiniteStateMachine.png"
                 alt="Line drawing of finite state machine"
@@ -217,7 +277,7 @@
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 A visualiser for FSMs with the ability to build FSMs through a
                 graphical interface or through regexs. Planned features include
@@ -239,7 +299,7 @@
             /> -->
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img
                 src="/Images/GameOfLife.png"
                 alt="Line drawing of a game of life state"
@@ -248,7 +308,7 @@
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 A Conway's Game Of Life visualiser with the ability to take in
                 user rules to allow for more user experimentation.
@@ -266,13 +326,13 @@
             />
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img src="/Images/NoiseGen.png" alt="Line drawing of noise map" />
               <h3>Noise Generators</h3>
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 A visualiser and break down of different noise generations
                 algorithms such as Perlin noise, Simplex noise, Worley noise
@@ -291,7 +351,7 @@
             /> -->
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img
                 src="/Images/TikTakToe.png"
                 alt="Line drawing of a tik-tak-toe game"
@@ -300,7 +360,7 @@
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 An online player vs computer tik-tak-toe game made using the
                 min-max (with and without pruning).
@@ -318,13 +378,13 @@
             />
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img src="/Images/Agenda.png" alt="Line drawing of a scroll" />
               <h3>Online Agenda Management Service</h3>
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 An online service that can be used to manage agendas for
                 meetings. hass log in functionality using google log-ins. Allows
@@ -356,13 +416,13 @@
               class="under-construction"
             /> -->
             <div class="cardshadow"></div>
-            <div class="content">
+            <div class="card-content">
               <img src="/Images/BreadBoardCPU.png" alt="Line Drawing of Chip" />
               <h3>Breadboard CPU</h3>
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 During the Summer of 2017 I built an 8-bit cpu on breadboards in
                 order to teach myself about computer architecture. This
@@ -382,13 +442,13 @@
             /> -->
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img src="/Images/Mask.png" alt="Line drawing of said mask" />
               <h3>LED Mask</h3>
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 For halloween of 2017 I decided to go as Wrench from WatchDogs 2
                 (a video game I liked). This character has a mask with LED eyes,
@@ -408,7 +468,7 @@
             /> -->
             <div class="cardshadow"></div>
 
-            <div class="content">
+            <div class="card-content">
               <img
                 src="/Images/GameBoyZero.png"
                 alt="Line Drawing of GameBoyZero"
@@ -417,7 +477,7 @@
             </div>
           </div>
           <div class="face card-descrip">
-            <div class="content">
+            <div class="card-content">
               <p>
                 During the Summer of 2018 I decided to make a portable retro
                 console emulator and found the gameboy zero project online. This
