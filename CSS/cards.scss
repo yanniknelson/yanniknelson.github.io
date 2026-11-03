@@ -5,7 +5,7 @@ $anim-time: 0.3s;
 .card {
   flex-basis: 20%;
   position: relative;
-  margin: 16.5px;
+  margin: 10px;
 
   .face {
     width: 330px;
@@ -117,6 +117,14 @@ $anim-time: 0.3s;
 
     a:hover {
       background: #333;
+    }
+
+    .NormalLink
+    {
+      display : initial;
+      border: initial;
+      margin: initial;
+      padding: 0;
     }
   }
 
